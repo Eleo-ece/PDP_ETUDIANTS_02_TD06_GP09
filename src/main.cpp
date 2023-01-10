@@ -2,8 +2,8 @@
 #include <Adafruit_Sensor.h>
 #include <DHT.h>
 #include <DHT_U.h>
-#include "WiFiClientSecure.h"
-#include <PubSubClient.h>
+#include "WiFiClientSecure.h" //HiveMQ force l'utilisation de connexions sécurisées par TLS
+#include <PubSubClient.h>     //Etablissement de la connexion au broker avec le protocole MQTT
 
 const char *wifi_ssid = "paulochon";
 const char *wifi_password = "paulochon";
@@ -11,7 +11,7 @@ const char *mqtt_server = "27cc61dbaffc4da08cd0081cabd8cf01.s2.eu.hivemq.cloud";
 int mqtt_port = 8883;
 const char *mqtt_user = "ocres4ever";
 const char *mqtt_pass = "ocresse123";
-const char *client_id = "TD06_GP09";
+const char *client_id = "TD06_GP09"; // identifiant qui permet au broker de connaître l'origin d'un message
 
 // Define the pins that we will use
 #define SENSOR 33
@@ -19,6 +19,10 @@ const char *client_id = "TD06_GP09";
 #define DHTTYPE DHT11
 
 DHT_Unified dht(SENSOR, DHTTYPE);
+
+// Client WIFI et MQTT
+WiFiClientSecure client;
+PubSubClient mqtt_client(client);
 
 void setup()
 {
