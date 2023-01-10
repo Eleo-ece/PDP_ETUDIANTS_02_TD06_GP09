@@ -5,13 +5,13 @@
 #include "WiFiClientSecure.h"
 #include <PubSubClient.h>
 
-const char *wifi_ssid = <votre_ssid_wifi>;
-const char *wifi_password = <votre_mdp_wifi>;
+const char *wifi_ssid = "paulochon";
+const char *wifi_password = "paulochon";
 const char *mqtt_server = "27cc61dbaffc4da08cd0081cabd8cf01.s2.eu.hivemq.cloud";
 int mqtt_port = 8883;
 const char *mqtt_user = "ocres4ever";
 const char *mqtt_pass = "ocresse123";
-const char *client_id = <votre_groupe>;
+const char *client_id = "TD06_GP09";
 
 // Define the pins that we will use
 #define SENSOR 33
