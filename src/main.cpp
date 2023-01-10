@@ -24,6 +24,21 @@ DHT_Unified dht(SENSOR, DHTTYPE);
 WiFiClientSecure client;
 PubSubClient mqtt_client(client);
 
+// Fonction qui sert à connecter la carte au réseau WIFI
+void connect_wifi()
+{
+  Serial.print("Connecting to WiFi");
+  WiFi.begin(wifi_ssid, wifi_password);
+  // attempt to connect to Wifi network:
+  while (WiFi.status() != WL_CONNECTED)
+  {
+    Serial.print(".");
+    // wait 2OOms for re-trying
+    delay(200);
+  }
+  Serial.println("\nConnected.");
+}
+
 void setup()
 {
   // Begin serial communication
@@ -31,7 +46,7 @@ void setup()
   delay(100);
 
   // Connect to WiFi
-  // ...
+  connect_wifi();
 
   // Configure MQTT server
   // ...
