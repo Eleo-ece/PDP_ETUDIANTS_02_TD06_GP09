@@ -86,6 +86,8 @@ void setup()
     relative_humidity_measure = event.relative_humidity;
   }
 
+  mqtt_client.connect(client_id, mqtt_user, mqtt_pass);
+
   // Send data to the broker with MQTT
   // ...
 
