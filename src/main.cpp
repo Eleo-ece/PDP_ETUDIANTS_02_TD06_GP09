@@ -49,7 +49,7 @@ void setup()
   connect_wifi();
 
   // Configure MQTT server
-  // ...
+  mqtt_client.setServer(mqtt_server, mqtt_port);
 
   // Start listening to the DHT11
   dht.begin();
